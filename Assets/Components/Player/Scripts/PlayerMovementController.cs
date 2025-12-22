@@ -9,6 +9,8 @@ public class PlayerMovementController : MonoBehaviour
     [Header("Jump Parameters")]
     [SerializeField] private float _jumpDuration = 1f;
     [SerializeField] private float _jumpHeight = 2f;
+    [SerializeField] private AnimationCurve _jumpCurve;
+    [SerializeField] private AnimationCurve _fallCurve;
     
     private void Update()
     {
@@ -38,7 +40,9 @@ public class PlayerMovementController : MonoBehaviour
             jumpTimer += Time.deltaTime;
             var normalizedTime = Mathf.Clamp01(jumpTimer / halfJumpDuration);
             
-            var targetHeight = Mathf.Lerp(0, _jumpHeight, normalizedTime);
+            //var targetHeight = Mathf.Lerp(0, _jumpHeight, normalizedTime);
+            var targetHeight = _jumpCurve.Evaluate(normalizedTime) * _jumpHeight;
+            
             var targetPosition = new Vector3(transform.position.x, targetHeight, transform.position.z);
             transform.position = targetPosition;
             
@@ -54,7 +58,8 @@ public class PlayerMovementController : MonoBehaviour
             jumpTimer += Time.deltaTime;
             var normalizedTime = Mathf.Clamp01(jumpTimer / halfJumpDuration);
             
-            var targetHeight = Mathf.Lerp(_jumpHeight, 0, normalizedTime);
+            var targetHeight = _fallCurve.Evaluate(normalizedTime) * _jumpHeight;
+            
             var targetPosition = new Vector3(transform.position.x, targetHeight, transform.position.z);
             transform.position = targetPosition;
             
