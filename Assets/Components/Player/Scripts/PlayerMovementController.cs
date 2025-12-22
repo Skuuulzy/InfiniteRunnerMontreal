@@ -12,8 +12,17 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private AnimationCurve _jumpCurve;
     [SerializeField] private AnimationCurve _fallCurve;
     
+    [Header("Slide Parameters")]
+    [SerializeField] private float _slideDuration = 0.5f;
+    [SerializeField] private Transform[] _slideTargets;
+    
     [Header("Components")]
     [SerializeField] private Animator _animator;
+    
+    [Header("Debug")]
+    [SerializeField] private bool _isJumping;
+    [SerializeField] private bool _isSliding;
+    [SerializeField] private int _currentLaneIndex = 1;
     
     private const string JUMP_PARAMETER = "IsJumping";
     private const string GROUNDED_PARAMETER = "Grounded";
@@ -24,6 +33,39 @@ public class PlayerMovementController : MonoBehaviour
         {
             HandleJump();
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (_isSliding)
+            {
+                return;
+            }
+            
+            if (_currentLaneIndex == 0)
+            {
+                return;
+            }
+            
+            _currentLaneIndex--;
+            
+            StartCoroutine(SlideCoroutine(_slideTargets[_currentLaneIndex]));
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (_isSliding)
+            {
+                return;
+            }
+            
+            if (_currentLaneIndex == _slideTargets.Length - 1)
+            {
+                return;
+            }
+            
+            _currentLaneIndex++;
+            
+            StartCoroutine(SlideCoroutine(_slideTargets[_currentLaneIndex]));
+        }
     }
 
     /// <summary>
@@ -31,11 +73,17 @@ public class PlayerMovementController : MonoBehaviour
     /// </summary>
     private void HandleJump()
     {
+        if (_isJumping)
+        {
+            return;
+        }
+        
         StartCoroutine(JumpCoroutine());
     }
 
     private IEnumerator JumpCoroutine()
     {
+        _isJumping = true;
         _animator.SetBool(JUMP_PARAMETER, true);
         
         var halfJumpDuration = _jumpDuration / 2f;
@@ -77,5 +125,25 @@ public class PlayerMovementController : MonoBehaviour
         }
         
         _animator.SetTrigger(GROUNDED_PARAMETER);
+        _isJumping = false;
+    }
+
+    private IEnumerator SlideCoroutine(Transform target)
+    {
+        _isSliding = true;
+        var slideTimer = 0f;
+
+        while (slideTimer < _slideDuration)
+        {
+            slideTimer += Time.deltaTime;
+            var normalizedTime = Mathf.Clamp01(slideTimer / _slideDuration);
+            var targetPosition = new Vector3(target.position.x, transform.position.y, transform.position.z);
+            
+            transform.position = Vector3.Lerp(transform.position, targetPosition, normalizedTime);
+            
+            // Wait for the next frame.
+            yield return null;
+        }
+        _isSliding = false;
     }
 }

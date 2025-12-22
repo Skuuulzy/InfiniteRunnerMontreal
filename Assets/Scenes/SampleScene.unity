@@ -365,6 +365,37 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &376717343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 376717344}
+  m_Layer: 0
+  m_Name: Lane2
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &376717344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376717343}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1134732207}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,6 +566,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1134732206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1134732207}
+  m_Layer: 0
+  m_Name: Lanes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1134732207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134732206}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1302309367}
+  - {fileID: 1400518381}
+  - {fileID: 376717344}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1302309366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1302309367}
+  m_Layer: 0
+  m_Name: Lane0
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1302309367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302309366}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1134732207}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1400518380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1400518381}
+  m_Layer: 0
+  m_Name: Lane1
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1400518381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400518380}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1134732207}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2278626201379011103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -587,6 +714,82 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _slideTargets.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: '_slideTargets.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1302309367}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: '_slideTargets.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1400518381}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: '_slideTargets.Array.data[2]'
+      value: 
+      objectReference: {fileID: 376717344}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _fallCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _fallCurve.m_Curve.Array.data[1].time
+      value: 0.5161338
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _fallCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _fallCurve.m_Curve.Array.data[1].value
+      value: 0.77667
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _fallCurve.m_Curve.Array.data[1].inSlope
+      value: -1.6288809
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _fallCurve.m_Curve.Array.data[2].inSlope
+      value: -0.047331106
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _jumpCurve.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _jumpCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _fallCurve.m_Curve.Array.data[1].inWeight
+      value: 0.12186813
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _fallCurve.m_Curve.Array.data[1].outSlope
+      value: -1.6288809
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _fallCurve.m_Curve.Array.data[2].inWeight
+      value: 0.1006099
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _fallCurve.m_Curve.Array.data[2].outSlope
+      value: -0.047331106
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _jumpCurve.m_Curve.Array.data[0].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _jumpCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090685415981862837, guid: 783dade577bc0a24c9470a5e6e5b052f, type: 3}
+      propertyPath: _fallCurve.m_Curve.Array.data[1].outWeight
+      value: 0.07609907
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -601,3 +804,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 2278626201379011103}
   - {fileID: 199405184}
+  - {fileID: 1134732207}
