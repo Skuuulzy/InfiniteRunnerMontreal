@@ -749,6 +749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3428630495250454067}
   - component: {fileID: 9077113506632021418}
+  - component: {fileID: 9077113506632021419}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -858,6 +859,20 @@ MonoBehaviour:
   _isJumping: 0
   _isSliding: 0
   _currentLaneIndex: 1
+--- !u!114 &9077113506632021419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4461461311457678604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a510b10166af91247b41484e539d4288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sphereCenter: {x: 0, y: 0.32, z: 0}
+  _sphereRadius: 0.35
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
