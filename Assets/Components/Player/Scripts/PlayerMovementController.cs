@@ -24,12 +24,14 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private bool _isSliding;
     [SerializeField] private int _currentLaneIndex = 1;
     
+    private Coroutine _slideCoroutine;
+    
     private const string JUMP_PARAMETER = "IsJumping";
     private const string GROUNDED_PARAMETER = "Grounded";
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             HandleJump();
         }
@@ -38,7 +40,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             if (_isSliding)
             {
-                return;
+                StopCoroutine(_slideCoroutine);
             }
             
             if (_currentLaneIndex == 0)
@@ -48,13 +50,13 @@ public class PlayerMovementController : MonoBehaviour
             
             _currentLaneIndex--;
             
-            StartCoroutine(SlideCoroutine(_slideTargets[_currentLaneIndex]));
+            _slideCoroutine = StartCoroutine(SlideCoroutine(_slideTargets[_currentLaneIndex]));
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (_isSliding)
             {
-                return;
+                StopCoroutine(_slideCoroutine);
             }
             
             if (_currentLaneIndex == _slideTargets.Length - 1)
@@ -64,7 +66,7 @@ public class PlayerMovementController : MonoBehaviour
             
             _currentLaneIndex++;
             
-            StartCoroutine(SlideCoroutine(_slideTargets[_currentLaneIndex]));
+            _slideCoroutine = StartCoroutine(SlideCoroutine(_slideTargets[_currentLaneIndex]));
         }
     }
 
@@ -144,6 +146,7 @@ public class PlayerMovementController : MonoBehaviour
             // Wait for the next frame.
             yield return null;
         }
+        
         _isSliding = false;
     }
 }
