@@ -15,7 +15,7 @@ public class PlayerColisionController : MonoBehaviour
     [SerializeField] private float _sphereRadius;
     
     private readonly Collider[] _hitResults = new Collider[1];
-
+    
     private void Start()
     {
         _sphereCenter = _sphereStandCenter;
@@ -28,7 +28,7 @@ public class PlayerColisionController : MonoBehaviour
         
         if (hitCount > 0 && !_isHit)
         {
-            Debug.Log("Player take damage");
+            GameEventSystem.OnCollision?.Invoke();
             _isHit = true;
         }
         // Reset the hit flag when no collision is detected.
