@@ -496,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9165b7a1d2ff2a4586590cdfe632f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _translationSpeed: 3
+  _translationSpeed: 1
   _activeChunksCount: 5
   _behindChunksCount: 1
   _preventSameChunkGeneration: 1
@@ -665,27 +665,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5017971254852617305, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -3.3217437
+      value: 0.000000518874
       objectReference: {fileID: 0}
     - target: {fileID: -5017971254852617305, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 25.67943
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: -5017971254852617305, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 44.44605
+      value: 32.49999
       objectReference: {fileID: 0}
     - target: {fileID: 445712794880070669, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -25.35069
+      value: 9.521379
       objectReference: {fileID: 0}
     - target: {fileID: 445712794880070669, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 2.5456424
       objectReference: {fileID: 0}
     - target: {fileID: 445712794880070669, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 0.026292577
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
       propertyPath: m_Name
@@ -693,43 +693,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1492312403021943278, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -74.99999
-      objectReference: {fileID: 0}
-    - target: {fileID: 1492312403021943278, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1492312403021943278, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
+      value: 28.476582
       objectReference: {fileID: 0}
     - target: {fileID: 1812433027226884373, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 29.62261
+      value: -9.520869
       objectReference: {fileID: 0}
     - target: {fileID: 7604367576434143486, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -74.99999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604367576434143486, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604367576434143486, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: -28.47658
       objectReference: {fileID: 0}
     - target: {fileID: 8891244130364874969, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -3.3217397
+      value: -0.000001731389
       objectReference: {fileID: 0}
     - target: {fileID: 8891244130364874969, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -25.679428
+      value: 24.999996
       objectReference: {fileID: 0}
     - target: {fileID: 8891244130364874969, guid: c3f6313d634bd0245ba9492270c79165, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -44.44606
+      value: -32.499992
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -866,8 +850,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _slideDuration: 0.5
-  _slideDownDuration: 1.2
+  _slideDuration: 1.2
+  _slideDownDuration: 0.6
   _slideTargets:
   - {fileID: 1302309367}
   - {fileID: 1400518381}
@@ -895,8 +879,8 @@ MonoBehaviour:
   _sphereShrinkCenter: {x: 0, y: 0.25, z: 0}
   _sphereShrinkRadius: 0.25
   _isHit: 0
-  _sphereCenter: {x: 0, y: 0.35, z: 0}
-  _sphereRadius: 0.35
+  _sphereCenter: {x: 0, y: 0, z: 0}
+  _sphereRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
