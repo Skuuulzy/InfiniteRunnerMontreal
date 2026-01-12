@@ -496,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9165b7a1d2ff2a4586590cdfe632f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _translationSpeed: 1
+  _translationSpeed: 3
   _activeChunksCount: 5
   _behindChunksCount: 1
   _preventSameChunkGeneration: 1

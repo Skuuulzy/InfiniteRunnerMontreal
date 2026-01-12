@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIGameOverController : MonoBehaviour
 {
@@ -17,5 +18,10 @@ public class UIGameOverController : MonoBehaviour
     private void HandleGameOver()
     {
         _gameOverPanel.SetActive(true);
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 }
