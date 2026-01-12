@@ -1,13 +1,12 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Component.SceneLoader;
 
 public class UIMainMenuController : MonoBehaviour
 {
     public void PlayGame()
     {
         // Load scenes
-        SceneManager.LoadScene("Level", LoadSceneMode.Single);
-        SceneManager.LoadScene("LevelUI", LoadSceneMode.Additive);
+        SceneLoaderService.LoadLevel();
     }
     
     public void QuitGame()

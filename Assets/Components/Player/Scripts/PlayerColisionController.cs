@@ -28,7 +28,7 @@ public class PlayerColisionController : MonoBehaviour
         
         if (hitCount > 0 && !_isHit)
         {
-            GameEventSystem.OnCollision?.Invoke();
+            GameEventService.OnCollision?.Invoke();
             _isHit = true;
         }
         // Reset the hit flag when no collision is detected.

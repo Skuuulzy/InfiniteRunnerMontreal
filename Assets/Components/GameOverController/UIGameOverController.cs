@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Component.SceneLoader;
 
 public class UIGameOverController : MonoBehaviour
 {
@@ -7,12 +7,12 @@ public class UIGameOverController : MonoBehaviour
     
     private void Start()
     {
-        GameEventSystem.OnGameOver += HandleGameOver;
+        GameEventService.OnGameOver += HandleGameOver;
     }
     
     private void OnDestroy()
     {
-        GameEventSystem.OnGameOver -= HandleGameOver;
+        GameEventService.OnGameOver -= HandleGameOver;
     }
 
     private void HandleGameOver()
@@ -22,6 +22,6 @@ public class UIGameOverController : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        SceneLoaderService.LoadMainMenu();
     }
 }

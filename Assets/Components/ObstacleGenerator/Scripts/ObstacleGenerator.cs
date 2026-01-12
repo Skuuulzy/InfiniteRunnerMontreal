@@ -23,12 +23,12 @@ public class ObstacleGenerator : MonoBehaviour
     private void Start()
     {
         AddBaseChunks();
-        GameEventSystem.OnGameOver += HandleGameOver;
+        GameEventService.OnGameOver += HandleGameOver;
     }
     
     private void OnDestroy()
     {
-        GameEventSystem.OnGameOver -= HandleGameOver;
+        GameEventService.OnGameOver -= HandleGameOver;
     }
 
     private void HandleGameOver()
