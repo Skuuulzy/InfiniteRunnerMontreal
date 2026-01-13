@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -14,18 +15,33 @@ public static class SaveService
         Debug.Log("Player data saved at " + FilePath);
     }
 
-    public static SaveData Load()
+    public static bool TryLoad(out SaveData saveData)
     {
-        string json = File.ReadAllText(FilePath);
+        string json;
+        
+        try
+        {
+            json = File.ReadAllText(FilePath);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Unable to read save file. Details: " + e);
+            saveData = null;
+            
+            return false;
+        }
 
         if (string.IsNullOrEmpty(json))
         {
             Debug.LogError("No save data found at path: " + FilePath);
-            return null;
+            saveData = null;
+            
+            return false;
         }
         
         var result = JsonUtility.FromJson<SaveData>(json);
+        saveData = result;
         
-        return result;
+        return true;
     }
 }
