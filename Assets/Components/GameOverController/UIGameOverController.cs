@@ -7,17 +7,17 @@ public class UIGameOverController : MonoBehaviour
     
     private void Start()
     {
-        GameEventService.OnGameOver += HandleGameOver;
+        GameEventService.OnGameOverState += HandleGameOver;
     }
     
     private void OnDestroy()
     {
-        GameEventService.OnGameOver -= HandleGameOver;
+        GameEventService.OnGameOverState -= HandleGameOver;
     }
 
-    private void HandleGameOver()
+    private void HandleGameOver(bool enterState)
     {
-        _gameOverPanel.SetActive(true);
+        _gameOverPanel.SetActive(enterState);
     }
 
     public void BackToMainMenu()
