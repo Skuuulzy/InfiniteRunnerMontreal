@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Components.SODB;
 using UnityEngine;
 
 /// <summary>
@@ -23,6 +24,15 @@ public class ObstacleGenerator : MonoBehaviour
     
     private void Start()
     {
+        int levelIndex = 1;
+        if (SaveService.TryLoad(out SaveData saveData))
+        {
+            levelIndex = saveData.LevelIndex;
+        }
+            
+        var parameters = ScriptableObjectDataBase.GetByName("Level" + levelIndex);
+        _translationSpeed = parameters.Speed;
+        
         AddBaseChunks();
         GameEventService.OnGameState += HandleGameState;
     }

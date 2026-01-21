@@ -1,10 +1,10 @@
 using UnityEngine;
 using Component.SceneLoader;
-using Components.Player.Scripts;
 
 public class UIMainMenuController : MonoBehaviour
 {
-    public void PlayGame()
+    
+    public void PlayGame(int levelIndex)
     {
         if (!SaveService.TryLoad(out SaveData saveData))
         {
@@ -12,6 +12,7 @@ public class UIMainMenuController : MonoBehaviour
         }
 
         saveData.RunCount++;
+        saveData.LevelIndex = levelIndex;
         SaveService.Save(saveData);
         
         // Load scenes

@@ -1,12 +1,13 @@
+using Components.Data;
 using UnityEngine;
 
 namespace Components.StateMachine
 {
     public class GameState : State
     {
-        private int _life = 3;
-        
-        public GameState(StateMachine stateMachine) : base(stateMachine)
+        private int _currentLife;
+
+        public GameState(StateMachine stateMachine, SOLevelParameters levelParameters) : base(stateMachine, levelParameters)
         {
         }
 
@@ -14,7 +15,8 @@ namespace Components.StateMachine
         {
             GameEventService.OnGameState?.Invoke(true);
             GameEventService.OnCollision += HandleCollision;
-            GameEventService.OnPlayerLifeUpdated?.Invoke(_life);
+            
+            _currentLife = LevelParameters.PlayerLife;
         }
 
         public override void Update()
@@ -30,13 +32,13 @@ namespace Components.StateMachine
         
         private void HandleCollision()
         {
-            _life--;
-            Debug.Log($"New life: {_life}");
-            GameEventService.OnPlayerLifeUpdated?.Invoke(_life);
+            _currentLife--;
+            Debug.Log($"New life: {_currentLife}");
+            GameEventService.OnPlayerLifeUpdated?.Invoke(_currentLife);
             
-            if (_life <= 0)
+            if (_currentLife <= 0)
             {
-                StateMachine.ChangeState(new GameOverState(StateMachine));
+                StateMachine.ChangeState(new GameOverState(StateMachine, LevelParameters));
             }
         }
     }
