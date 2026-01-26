@@ -205,13 +205,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14780942, y: 0, z: 0, w: 0.9890159}
-  m_LocalPosition: {x: 0, y: 2.5, z: -4}
+  m_LocalRotation: {x: 0.309017, y: 0, z: 0, w: 0.95105654}
+  m_LocalPosition: {x: 0, y: 4.3, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 17, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 36, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,13 +541,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _translationSpeed: 6
-  _activeChunksCount: 5
+  _activeChunksCount: 7
   _behindChunksCount: 1
   _preventSameChunkGeneration: 1
   _chunkPrefabs:
   - {fileID: 8158737250449727808, guid: 1c97d1ebdaabf574b9b592af59db8cd3, type: 3}
   - {fileID: 8158737250449727808, guid: da0ec72bac64b1a47baf9c17d803db45, type: 3}
   - {fileID: 8158737250449727808, guid: 68701eef812e41d41878396c73babd8a, type: 3}
+  - {fileID: 8158737250449727808, guid: 0d966ee8c3669b544aa6e23c4f9c1af8, type: 3}
 --- !u!4 &1053471148
 Transform:
   m_ObjectHideFlags: 0
@@ -895,7 +896,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _slideDuration: 1.2
-  _slideDownDuration: 0.6
+  _slideDownDuration: 1
   _slideTargets:
   - {fileID: 1302309367}
   - {fileID: 1400518381}

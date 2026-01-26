@@ -3,6 +3,7 @@ using System;
 public static class GameEventService
 {
     public static Action OnCollision;
+    public static Action OnCollectiblePicked;
     public static Action<int> OnPlayerLifeUpdated;
     public static Action<float> OnCountdownTick;
 

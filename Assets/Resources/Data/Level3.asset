@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Level3
   m_EditorClassIdentifier: 
   _playerLife: 30
-  _speed: 60
+  _speed: 15

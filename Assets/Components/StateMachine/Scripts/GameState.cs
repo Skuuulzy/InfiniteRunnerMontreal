@@ -1,3 +1,4 @@
+using System;
 using Components.Data;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ namespace Components.StateMachine
         {
             GameEventService.OnGameState?.Invoke(true);
             GameEventService.OnCollision += HandleCollision;
+            GameEventService.OnCollectiblePicked += HandleCollectiblePicked;
             
             _currentLife = LevelParameters.PlayerLife;
         }
@@ -28,6 +30,7 @@ namespace Components.StateMachine
         {
             GameEventService.OnGameState?.Invoke(false);
             GameEventService.OnCollision -= HandleCollision;
+            GameEventService.OnCollectiblePicked -= HandleCollectiblePicked;
         }
         
         private void HandleCollision()
@@ -40,6 +43,18 @@ namespace Components.StateMachine
             {
                 StateMachine.ChangeState(new GameOverState(StateMachine, LevelParameters));
             }
+        }
+        
+        private void HandleCollectiblePicked()
+        {
+            // Cannot exceed maximum life for the level.
+            if (_currentLife == LevelParameters.PlayerLife)
+            {
+                return;
+            }
+            
+            _currentLife++;
+            GameEventService.OnPlayerLifeUpdated?.Invoke(_currentLife);
         }
     }
 }
