@@ -1,3 +1,4 @@
+using Components.Data;
 using Components.SODB;
 using TMPro;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class UILifeController : MonoBehaviour
             levelIndex = saveData.LevelIndex;
         }
             
-        var parameters = ScriptableObjectDataBase.GetByName("Level" + levelIndex);
+        var parameters = ScriptableObjectDataBase.Get<SOLevelParameters>("Level" + levelIndex);
         
         SetLife(parameters.PlayerLife);
         GameEventService.OnPlayerLifeUpdated += SetLife;

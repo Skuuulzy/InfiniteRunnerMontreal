@@ -1,4 +1,5 @@
-﻿using Components.SODB;
+﻿using Components.Data;
+using Components.SODB;
 using UnityEngine;
 
 namespace Components.StateMachine
@@ -15,7 +16,7 @@ namespace Components.StateMachine
                 levelIndex = saveData.LevelIndex;
             }
             
-            var parameters = ScriptableObjectDataBase.GetByName("Level" + levelIndex);
+            var parameters = ScriptableObjectDataBase.Get<SOLevelParameters>("Level" + levelIndex);
             
             _stateMachine = new StateMachine();
             var initialState = new CountdownState(_stateMachine, parameters);
