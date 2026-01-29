@@ -1,5 +1,6 @@
 using System;
 using Components.Data;
+using Components.GameEventSystem;
 using UnityEngine;
 
 namespace Components.StateMachine
@@ -7,6 +8,8 @@ namespace Components.StateMachine
     public class GameState : State
     {
         private int _currentLife;
+        private float _timer;
+        private int _colorSwapCount;
 
         public GameState(StateMachine stateMachine, SOLevelParameters levelParameters) : base(stateMachine, levelParameters)
         {
@@ -19,11 +22,27 @@ namespace Components.StateMachine
             GameEventService.OnCollectiblePicked += HandleCollectiblePicked;
             
             _currentLife = LevelParameters.PlayerLife;
+            _timer = 0;
         }
 
         public override void Update()
         {
+            // If color swap count is reached, stop updating colors of chunks.
+            if (_colorSwapCount >= LevelParameters.MaxColorSwapCount)
+            {
+                return;
+            }
             
+            _timer += Time.deltaTime;
+            if (_timer >= LevelParameters.ColorChunkTimeInterval)
+            {
+                var material = LevelParameters.ChunkMaterials[_colorSwapCount];
+                GameEventService.OnChunkColorUpdated?.Invoke(material);
+                PersistantData.CurrentChunkMaterial = material;
+                
+                _colorSwapCount++;
+                _timer = 0;
+            }
         }
 
         public override void Exit()

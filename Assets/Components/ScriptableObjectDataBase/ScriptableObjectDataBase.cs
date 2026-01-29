@@ -40,6 +40,12 @@ namespace Components.SODB
             Debug.Log($"[DATABASE] Loaded {templates.Length} {type.Name}(s)");
         }
 
+        /// <summary>
+        /// Get an object by name referenced in resources files of the project.
+        /// </summary>
+        /// <param name="name">The name of the desired object.</param>
+        /// <typeparam name="T">The type of the desired object. Type must be an <see cref="Object"/></typeparam>
+        /// <returns>The object found, null if nothing is found.</returns>
         public static T Get<T>(string name) where T : Object
         {
             var type = typeof(T);

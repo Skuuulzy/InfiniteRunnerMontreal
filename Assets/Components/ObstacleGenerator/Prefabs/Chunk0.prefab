@@ -308,3 +308,4 @@ MonoBehaviour:
   _collectiblePrefab: {fileID: 4591234591272179710, guid: e22d44dc3c9419741b3ca053f1dec0a4, type: 3}
   _spawnPoint: {fileID: 3138143587759576604}
   _spawnChance: 70
+  _meshRenderer: {fileID: 8477872293099930924}

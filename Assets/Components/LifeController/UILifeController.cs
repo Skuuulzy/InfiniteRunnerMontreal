@@ -8,7 +8,6 @@ public class UILifeController : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private TMP_Text _lifeText;
     
-    
     private void Start()
     {
         int levelIndex = 1;

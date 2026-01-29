@@ -15,6 +15,11 @@ public static class SaveService
         Debug.Log("Player data saved at " + FilePath);
     }
 
+    /// <summary>
+    /// Tries to load save data from disk.
+    /// </summary>
+    /// <param name="saveData">The save data.</param>
+    /// <returns>True if the data has been found on disk.</returns>
     public static bool TryLoad(out SaveData saveData)
     {
         string json;

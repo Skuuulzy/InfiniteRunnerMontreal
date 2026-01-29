@@ -8,9 +8,11 @@ public class PlayerMovementController : MonoBehaviour
 {
     [Header("Jump Parameters")]
     [SerializeField] private float _jumpDuration = 1f;
+    [SerializeField] private float _fastFallDuration = 1f;
     [SerializeField] private float _jumpHeight = 2f;
     [SerializeField] private AnimationCurve _jumpCurve;
     [SerializeField] private AnimationCurve _fallCurve;
+    [SerializeField] private AnimationCurve _fastFallCurve;
     
     [Header("Slide Parameters")]
     [SerializeField] private float _slideDuration = 0.5f;
@@ -28,6 +30,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private int _currentLaneIndex = 1;
     
     private Coroutine _slideCoroutine;
+    private Coroutine _jumpCoroutine;
     
     private const string JUMP_PARAMETER = "IsJumping";
     private const string SLIDE_DOWN_PARAMETER = "IsSlidingDown";
@@ -76,12 +79,7 @@ public class PlayerMovementController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (_isSlidingDown || _isJumping)
-            {
-                return;
-            }
-            
-            StartCoroutine(SlideDownCoroutine());
+            HandleSlideDown();
         }
     }
 
@@ -95,7 +93,25 @@ public class PlayerMovementController : MonoBehaviour
             return;
         }
         
-        StartCoroutine(JumpCoroutine());
+        _jumpCoroutine = StartCoroutine(JumpCoroutine());
+    }
+    
+    private void HandleSlideDown()
+    {
+        if (_isSlidingDown)
+        {
+            return;
+        }
+
+        if (_isJumping)
+        {
+            StopCoroutine(_jumpCoroutine);
+            StartCoroutine(FastFallCoroutine());
+
+            return;
+        }
+
+        StartCoroutine(SlideDownCoroutine());
     }
 
     private IEnumerator JumpCoroutine()
@@ -113,7 +129,6 @@ public class PlayerMovementController : MonoBehaviour
             jumpTimer += Time.deltaTime;
             var normalizedTime = Mathf.Clamp01(jumpTimer / halfJumpDuration);
             
-            //var targetHeight = Mathf.Lerp(0, _jumpHeight, normalizedTime);
             var targetHeight = _jumpCurve.Evaluate(normalizedTime) * _jumpHeight;
             
             var targetPosition = new Vector3(transform.position.x, targetHeight, transform.position.z);
@@ -134,6 +149,31 @@ public class PlayerMovementController : MonoBehaviour
             var normalizedTime = Mathf.Clamp01(jumpTimer / halfJumpDuration);
             
             var targetHeight = _fallCurve.Evaluate(normalizedTime) * _jumpHeight;
+            
+            var targetPosition = new Vector3(transform.position.x, targetHeight, transform.position.z);
+            transform.position = targetPosition;
+            
+            yield return null;
+        }
+        
+        _animator.SetTrigger(GROUNDED_PARAMETER);
+        _isJumping = false;
+    }
+
+    private IEnumerator FastFallCoroutine()
+    {
+        _animator.SetBool(JUMP_PARAMETER, false);
+        
+        var startHeight = transform.position.y;
+        
+        var fastFallTimer = 0f;
+
+        while (fastFallTimer < _fastFallDuration)
+        {
+            fastFallTimer += Time.deltaTime;
+            var normalizedTime = Mathf.Clamp01(fastFallTimer / _fastFallDuration);
+            
+            var targetHeight = _fastFallCurve.Evaluate(normalizedTime) * startHeight;
             
             var targetPosition = new Vector3(transform.position.x, targetHeight, transform.position.z);
             transform.position = targetPosition;

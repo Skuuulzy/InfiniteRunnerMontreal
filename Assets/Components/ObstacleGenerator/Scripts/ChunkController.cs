@@ -1,3 +1,4 @@
+using Components.GameEventSystem;
 using UnityEngine;
 
 public class ChunkController : MonoBehaviour
@@ -6,6 +7,7 @@ public class ChunkController : MonoBehaviour
     [SerializeField] private GameObject _collectiblePrefab;
     [SerializeField] private Transform _spawnPoint;
     [SerializeField, Range(0,99)] private int _spawnChance;
+    [SerializeField] private MeshRenderer _meshRenderer;
     
     public Transform EndAnchor => _endAnchor;
 
@@ -13,6 +15,9 @@ public class ChunkController : MonoBehaviour
 
     public void Start()
     {
+        GameEventService.OnChunkColorUpdated += HandleChunkColorUpdated;
+        HandleChunkColorUpdated(PersistantData.CurrentChunkMaterial);
+        
         if (_spawnChance != 0) 
         {
             bool randomSpawnChance = Random.Range(0, 100) <= _spawnChance;
@@ -21,5 +26,20 @@ public class ChunkController : MonoBehaviour
                 Instantiate(_collectiblePrefab, _spawnPoint);
             }
         }
+    }
+    
+    private void OnDestroy()
+    {
+        GameEventService.OnChunkColorUpdated -= HandleChunkColorUpdated;
+    }
+    
+    private void HandleChunkColorUpdated(Material newMaterial)
+    {
+        if (!newMaterial)
+        {
+            return;
+        }
+        
+        _meshRenderer.material = newMaterial;
     }
 }

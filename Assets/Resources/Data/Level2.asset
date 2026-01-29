@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerLife: 2
   _speed: 10
+  _colorChunkTimeInterval: 20
+  _chunkMaterials:
+  - {fileID: 2100000, guid: 54c968c08cfc8dd4dbc1bb2f407f49f8, type: 2}
+  - {fileID: 2100000, guid: 4cdaf4b4464b46842b7a92f2e9610780, type: 2}
+  - {fileID: 2100000, guid: ee5703bb4bf253249a840b89166083dc, type: 2}
+  - {fileID: 2100000, guid: 32749e9262e6f534cb0b609ca93ab547, type: 2}

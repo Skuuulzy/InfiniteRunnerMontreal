@@ -274,6 +274,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _endAnchor: {fileID: 5172699984667546524}
+  _collectiblePrefab: {fileID: 0}
+  _spawnPoint: {fileID: 0}
+  _spawnChance: 0
+  _meshRenderer: {fileID: 8477872293099930924}
 --- !u!95 &8142581294721001207
 Animator:
   serializedVersion: 7
